@@ -1,0 +1,1 @@
+import{a as e,l as t,u as n}from"./index-nljKxhIg.js";import{t as r}from"./SectionPlaceholder-oKLsrNOU.js";var i=t({__name:`RegionView`,setup(t){return(t,i)=>(n(),e(r,{eyebrow:`Découvrir le territoire`,title:`La région du Hambol`,description:`Son histoire, ses populations, ses départements, ses richesses et ses perspectives de développement.`}))}});export{i as default};

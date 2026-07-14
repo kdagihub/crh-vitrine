@@ -1,0 +1,1 @@
+import{a as e,l as t,u as n}from"./index-nljKxhIg.js";import{t as r}from"./SectionPlaceholder-oKLsrNOU.js";var i=t({__name:`AgendaView`,setup(t){return(t,i)=>(n(),e(r,{eyebrow:`Prochains rendez-vous`,title:`Agenda régional`,description:`Réunions, cérémonies, rencontres territoriales et événements du Conseil régional du Hambol.`}))}});export{i as default};

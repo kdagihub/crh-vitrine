@@ -1,0 +1,1 @@
+import{a as e,l as t,u as n}from"./index-nljKxhIg.js";import{t as r}from"./SectionPlaceholder-oKLsrNOU.js";var i=t({__name:`PolicyView`,setup(t){return(t,i)=>(n(),e(r,{eyebrow:`Agir pour le Hambol`,title:`Actions publiques`,description:`Les politiques, programmes et réalisations portés par le Conseil régional dans les territoires.`}))}});export{i as default};

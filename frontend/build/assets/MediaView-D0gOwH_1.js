@@ -1,0 +1,1 @@
+import{a as e,l as t,u as n}from"./index-nljKxhIg.js";import{t as r}from"./SectionPlaceholder-oKLsrNOU.js";var i=t({__name:`MediaView`,setup(t){return(t,i)=>(n(),e(r,{eyebrow:`Images et ressources`,title:`Médiathèque`,description:`Photographies, vidéos, publications et documents publics du Conseil régional du Hambol.`}))}});export{i as default};
