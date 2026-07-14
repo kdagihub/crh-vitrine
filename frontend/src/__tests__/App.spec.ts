@@ -4,8 +4,8 @@ import { mount } from '@vue/test-utils'
 import App from '../App.vue'
 
 describe('App', () => {
-  it('mounts renders properly', () => {
+  it('renders the active public route', () => {
     const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
+    expect(wrapper.findComponent({ name: 'RouterView' }).exists()).toBe(true)
   })
 })

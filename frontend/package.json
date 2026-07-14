@@ -16,9 +16,31 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
+    "@primeuix/themes": "^2.0.3",
+    "@tailwindcss/vite": "^4.3.2",
+    "@tiptap/extension-image": "^3.27.4",
+    "@tiptap/extension-link": "^3.27.4",
+    "@tiptap/extension-placeholder": "^3.27.4",
+    "@tiptap/extension-text-align": "^3.27.4",
+    "@tiptap/extension-underline": "^3.27.4",
+    "@tiptap/starter-kit": "^3.27.4",
+    "@tiptap/vue-3": "^3.27.4",
+    "@vueuse/core": "^14.3.0",
+    "axios": "^1.14.0",
+    "chart.js": "^4.5.1",
+    "dayjs": "^1.11.21",
+    "html2canvas-pro": "^2.2.4",
+    "jspdf": "^4.2.1",
+    "lucide-vue-next": "^1.0.0",
     "pinia": "^3.0.4",
-    "vue": "^3.5.38",
-    "vue-router": "^5.1.0"
+    "primeicons": "^7.0.0",
+    "primevue": "^4.5.5",
+    "qrcode": "^1.5.4",
+    "tailwindcss": "^4.3.2",
+    "vue": "^3.5.39",
+    "vue-chartjs": "^5.3.4",
+    "vue-router": "^5.1.0",
+    "vue-tel-input": "^9.8.0"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",

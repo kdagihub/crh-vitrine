@@ -1,0 +1,6 @@
+<script setup lang="ts">
+import { ArrowLeft } from 'lucide-vue-next'
+defineProps<{ eyebrow: string; title: string; description: string }>()
+</script>
+<template><section class="page-hero"><div class="container"><p>{{ eyebrow }}</p><h1>{{ title }}</h1><span>{{ description }}</span></div></section><section class="section"><div class="container placeholder"><p>Cette rubrique est prête à recevoir les contenus institutionnels et les données publiques du Conseil régional.</p><RouterLink to="/"><ArrowLeft :size="17" />Retour à l’accueil</RouterLink></div></section></template>
+<style scoped>.page-hero{padding-block:clamp(5rem,10vw,8rem);color:#fff;background:var(--green)}.page-hero p{margin-bottom:.8rem;color:#ffb36d;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.page-hero h1{max-width:18ch;margin-bottom:1rem;font-size:clamp(2.5rem,5vw,4.8rem);line-height:1;letter-spacing:-.05em}.page-hero span{display:block;max-width:55ch;color:#dcebe3;line-height:1.7}.placeholder{min-height:12rem}.placeholder p{max-width:60ch;color:var(--muted);line-height:1.7}.placeholder a{display:inline-flex;align-items:center;gap:.4rem;margin-top:1rem;color:var(--orange-dark);font-size:.82rem;font-weight:800;text-decoration:none}</style>

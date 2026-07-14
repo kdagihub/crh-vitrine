@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root {
+  --orange: #e87516;
+  --orange-dark: #bf5609;
+  --orange-soft: #fff2e7;
+  --green: #087443;
+  --green-dark: #055a35;
+  --green-soft: #eaf7f0;
+  --ink: #172026;
+  --muted: #66747d;
+  --line: #dde3e6;
+  --surface: #f7f8f8;
+  --white: #fff;
+  --container: 1280px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: #fff;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+button, input, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3, .brand { font-family: 'Manrope', sans-serif; }
+a { color: inherit; }
+.container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
+.section { padding-block: clamp(4rem, 8vw, 7rem); }
+.eyebrow { margin-bottom: .75rem; color: var(--green); font-size: .73rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.section-title { max-width: 18ch; margin-bottom: 1rem; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.08; letter-spacing: -.04em; }
+.section-copy { max-width: 62ch; color: var(--muted); line-height: 1.7; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; min-height: 3rem; padding: .7rem 1rem; border: 1px solid transparent; border-radius: .45rem; font-size: .86rem; font-weight: 800; text-decoration: none; cursor: pointer; }
+.button-orange { color: #fff; background: var(--orange); }.button-orange:hover { background: var(--orange-dark); }
+.button-outline { border-color: #fff; color: #fff; background: transparent; }.button-outline:hover { color: var(--ink); background: #fff; }
+.skip-link { position: fixed; z-index: 1000; top: .5rem; left: .5rem; padding: .7rem 1rem; color: #fff; background: var(--green); transform: translateY(-150%); }.skip-link:focus { transform: none; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
