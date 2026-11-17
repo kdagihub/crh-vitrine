@@ -39,6 +39,10 @@ npm run dev
 
 ```sh
 npm run build
+
+cd "/home/devfullstack/Bureau/CIACEMS TECHNOLOGIES/crh/crh-vitrine/frontend"
+npm run build -- --outDir build
+
 ```
 
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
