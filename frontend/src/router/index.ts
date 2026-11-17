@@ -5,7 +5,7 @@ import HomeView from '@/views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  scrollBehavior: () => ({ top: 0 }),
+  scrollBehavior: (to) => to.hash ? { el: to.hash, top: 110, behavior: 'smooth' } : { top: 0 },
   routes: [
     {
       path: '/',
@@ -13,6 +13,7 @@ const router = createRouter({
       children: [
         { path: '', name: 'home', component: HomeView },
         { path: 'la-region', name: 'region', component: () => import('@/views/RegionView.vue') },
+        { path: 'cadre-de-vie', name: 'living-environment', component: () => import('@/views/LivingEnvironmentView.vue') },
         { path: 'agenda', name: 'agenda', component: () => import('@/views/AgendaView.vue') },
         { path: 'actions-publiques', name: 'policy', component: () => import('@/views/PolicyView.vue') },
         { path: 'mediatheque', name: 'media', component: () => import('@/views/MediaView.vue') },

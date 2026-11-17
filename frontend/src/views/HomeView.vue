@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
-import { ArrowLeft, ArrowRight, CalendarDays, MapPin, Newspaper, Pause, Play, Quote, School, Stethoscope, Droplets } from 'lucide-vue-next'
+import { ArrowLeft, ArrowRight, MapPin, Pause, Play, Quote, School, Stethoscope, Droplets } from 'lucide-vue-next'
+import PndNotice from '@/components/PndNotice.vue'
+import PhotoGallery from '@/components/PhotoGallery.vue'
+import { highlights } from '@/data/pnd'
 import groupPhoto from '@/assets/img/2024-1024x827.jpg'
 import presidentEvent from '@/assets/img/ikk-en-cache-nez.jpg'
 import presidentPhoto from '@/assets/img/ikk3.jpg'
@@ -25,18 +28,14 @@ const stats = [
   { value: '19 122', unit: 'km²', label: 'de superficie' },
   { value: '3', unit: '', label: 'départements' },
   { value: '19', unit: '', label: 'sous-préfectures' },
-  { value: '429 977', unit: '', label: 'habitants en 2014' },
+  { value: '696 394', unit: '', label: 'habitants estimés en 2025' },
 ]
 const actions = [
   { icon: School, title: 'Éducation', text: 'Écoles, salles de classe et équipements pour améliorer les conditions d’apprentissage.' },
   { icon: Stethoscope, title: 'Santé', text: 'Des infrastructures sanitaires plus proches et plus accessibles aux populations.' },
   { icon: Droplets, title: 'Eau et cadre de vie', text: 'Hydraulique, assainissement et services essentiels pour les localités du Hambol.' },
 ]
-const news = [
-  { image: groupPhoto, category: 'Institution', date: '12 juillet 2026', title: 'Le Conseil régional renforce la coordination territoriale' },
-  { image: presidentPhoto, category: 'Conseil régional', date: '8 juillet 2026', title: 'Une vision tournée vers les projets utiles aux populations' },
-  { image: presidentEvent, category: 'Terrain', date: '3 juillet 2026', title: 'Échanges avec les acteurs locaux sur les priorités du Hambol' },
-]
+
 </script>
 
 <template>
@@ -69,7 +68,9 @@ const news = [
 
     <section class="section action-section"><div class="container"><p class="eyebrow">Priorités régionales</p><h2 class="section-title">Agir sur les besoins essentiels.</h2><div class="action-grid"><article v-for="action in actions" :key="action.title"><span><component :is="action.icon" :size="24" /></span><h3>{{ action.title }}</h3><p>{{ action.text }}</p></article></div></div></section>
 
-    <section class="section news-section"><div class="container"><div class="section-header"><div><p class="eyebrow">À la une</p><h2 class="section-title">Actualités du Conseil régional</h2></div><RouterLink class="text-link" to="/actions-publiques">Toutes les actualités <ArrowRight :size="17" /></RouterLink></div><div class="news-grid"><article v-for="item in news" :key="item.title"><img :src="item.image" :alt="item.title" /><div><span>{{ item.category }}</span><small><CalendarDays :size="14" />{{ item.date }}</small><h3>{{ item.title }}</h3><a href="#">Lire l’actualité <ArrowRight :size="15" /></a></div></article></div></div></section>
+    <section class="section perspectives-section"><div class="container"><div class="section-header"><div><p class="eyebrow">Perspectives 2026–2030</p><h2 class="section-title">Ce qui est prévu dans le Hambol.</h2></div><RouterLink class="text-link" to="/actions-publiques">Découvrir les projets <ArrowRight :size="17" /></RouterLink></div><div class="metric-grid"><article v-for="item in highlights" :key="item.label" class="metric-card"><strong>{{ item.value }}</strong><h3>{{ item.label }}</h3><p>{{ item.detail }}</p><RouterLink :to="item.to">En savoir plus <ArrowRight :size="15" aria-hidden="true" /></RouterLink></article></div><PndNotice /></div></section>
+
+    <PhotoGallery show-media-link />
 
     <section class="sigpt-cta"><div class="container"><div><p>Plateforme de pilotage régional</p><h2>Suivez les programmes et projets du Hambol.</h2></div><a class="button sigpt-button" href="https://gestion.crh-ci.org">Accéder au SIGPT <ArrowRight :size="18" /></a></div></section>
   </div>
@@ -81,7 +82,7 @@ const news = [
 .president-grid{display:grid;grid-template-columns:minmax(20rem,.8fr) minmax(28rem,1.2fr);align-items:center;gap:clamp(3rem,8vw,7rem)}.president-picture{position:relative}.president-picture::before{content:'';position:absolute;top:-1rem;right:1rem;bottom:1rem;left:-1rem;z-index:-1;background:var(--orange)}.president-picture img{width:100%;aspect-ratio:.95;object-fit:cover;object-position:center}.president-picture>span{position:absolute;right:-1rem;bottom:-1rem;padding:.7rem .85rem;color:#fff;background:var(--green);font-size:.72rem;font-weight:800;text-transform:uppercase}.president-copy>svg{margin-bottom:.8rem;color:var(--orange)}.president-copy .signature{display:grid;margin:1.6rem 0;color:var(--ink);font-family:'Manrope';font-weight:800}.signature span{margin-top:.25rem;color:var(--green);font-family:'DM Sans';font-size:.75rem;font-weight:700}.text-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--orange-dark);font-size:.82rem;font-weight:800;text-decoration:none}
 .region-intro{color:#fff;background:var(--green)}.region-intro .eyebrow{color:#ffb36d}.region-intro .section-copy{color:#dcebe3}.region-grid{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:6rem}.region-button{margin-top:1.5rem;color:var(--green);background:#fff}.region-grid aside{padding:2.4rem;border-left:1px solid rgb(255 255 255 / 35%)}.region-grid aside>strong{display:block;color:#ffac5e;font-family:'Manrope';font-size:5rem;line-height:1}.region-grid aside>span{display:block;max-width:25ch;margin:.7rem 0 1.4rem;font-size:1.15rem;font-weight:700;line-height:1.4}.region-grid aside>div{display:flex;flex-wrap:wrap;gap:.4rem}.region-grid aside b{padding:.4rem .6rem;border:1px solid rgb(255 255 255 / 35%);font-size:.7rem}
 .action-section{background:var(--surface)}.action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}.action-grid article{padding:2rem;border:1px solid var(--line);background:#fff}.action-grid article>span{display:grid;place-items:center;width:3rem;height:3rem;margin-bottom:1.4rem;color:var(--green);background:var(--green-soft)}.action-grid h3{font-size:1.05rem}.action-grid p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.65}
-.section-header{display:flex;align-items:end;justify-content:space-between;gap:2rem}.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.5rem}.news-grid article{overflow:hidden;border:1px solid var(--line);background:#fff}.news-grid img{width:100%;aspect-ratio:1.55;object-fit:cover}.news-grid article>div{padding:1.3rem}.news-grid span{color:var(--green);font-size:.7rem;font-weight:800;text-transform:uppercase}.news-grid small{display:flex;align-items:center;gap:.35rem;margin:.6rem 0;color:var(--muted)}.news-grid h3{min-height:3.4rem;font-size:1rem;line-height:1.4}.news-grid a{display:inline-flex;align-items:center;gap:.35rem;color:var(--orange-dark);font-size:.76rem;font-weight:800;text-decoration:none}
+.section-header{display:flex;align-items:end;justify-content:space-between;gap:2rem}
 .sigpt-cta{padding-block:3rem;color:#fff;background:var(--orange)}.sigpt-cta .container{display:flex;align-items:center;justify-content:space-between;gap:2rem}.sigpt-cta p{margin-bottom:.4rem;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.sigpt-cta h2{max-width:24ch;margin:0;font-size:clamp(1.5rem,3vw,2.35rem)}.sigpt-button{color:var(--ink);background:#fff}
-@media(max-width:850px){.stats-grid{grid-template-columns:1fr 1fr}.president-grid,.region-grid{grid-template-columns:1fr;gap:3rem}.president-picture{max-width:30rem}.action-grid,.news-grid{grid-template-columns:1fr}.news-grid article{display:grid;grid-template-columns:.8fr 1.2fr}.news-grid img{height:100%;aspect-ratio:auto}.sigpt-cta .container{align-items:flex-start;flex-direction:column}}@media(max-width:560px){.hero{height:40rem}.hero h1{font-size:2.65rem}.slider-controls{justify-content:center}.stats article{padding:1.5rem .6rem}.stats span{font-size:.62rem}.president-grid{grid-template-columns:minmax(0,1fr)}.president-picture>span{right:0}.section-header{align-items:flex-start;flex-direction:column}.news-grid article{display:block}.sigpt-cta{padding-block:2.5rem}}
+@media(max-width:850px){.stats-grid{grid-template-columns:1fr 1fr}.president-grid,.region-grid{grid-template-columns:1fr;gap:3rem}.president-picture{max-width:30rem}.action-grid{grid-template-columns:1fr}.sigpt-cta .container{align-items:flex-start;flex-direction:column}}@media(max-width:560px){.hero{height:40rem}.hero h1{font-size:2.65rem}.slider-controls{justify-content:center}.stats article{padding:1.5rem .6rem}.stats span{font-size:.62rem}.president-grid{grid-template-columns:minmax(0,1fr)}.president-picture>span{right:0}.section-header{align-items:flex-start;flex-direction:column}.sigpt-cta{padding-block:2.5rem}}
 </style>
